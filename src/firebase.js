@@ -1,21 +1,23 @@
-import { initializeApp } from 'firebase/app';
-import { getDatabase } from "firebase/database";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// TODO: Replace with your app's Firebase project configuration
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  // The value of `databaseURL` depends on the location of the database
-  databaseURL: "https://DATABASE_NAME.firebaseio.com",
-  projectId: "PROJECT_ID",
-  storageBucket: "PROJECT_ID.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID",
-  // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
-  measurementId: "G-MEASUREMENT_ID",
+  apiKey: "AIzaSyCtzuuALsBL1zuR1A9A4DenTPO1Tyzb6Lk",
+  authDomain: "nmfood-b8247.firebaseapp.com",
+  projectId: "nmfood-b8247",
+  storageBucket: "nmfood-b8247.appspot.com",
+  messagingSenderId: "388322400280",
+  appId: "1:388322400280:web:b662db575c8d192a160b6d",
+  measurementId: "G-PNWT3TWB8Z"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-// Get a reference to the database service
-const db = getDatabase(app);
+export default firebase;
