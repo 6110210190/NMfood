@@ -8,7 +8,7 @@ function FormOrder() {
     <div>
       <Navbar />
       <Container style= {{ padding: '3rem' }}>
-        <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>สร้างออเดอร์</h1>
+        <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Create Order</h1>
         <Form.Group className='mb-3'>
           <Form.Control placeholder="ชื่อลูกค้า"/>
         </Form.Group>
