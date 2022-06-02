@@ -1,19 +1,19 @@
-
-import React from "react";
-import { Container } from "react-bootstrap";
+import { Container } from 'react-bootstrap';
+import React from 'react';
 import Navbar from '../components/Navbar';
-
-function ShowOrder() {
+function FormOrder() {
 
 
   return (
-    <div className="App">
-      <Navbar/>
-       <Container>
-         Order List
-       </Container>
+    <div>
+      <Navbar />
+      <Container style= {{ padding: '3rem' }}>
+        <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Order List</h1>
+        
+      </Container>
+       
     </div>
   );
 }
 
-export default ShowOrder;
+export default FormOrder;
