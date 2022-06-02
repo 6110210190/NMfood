@@ -10,8 +10,8 @@ function App() {
             <Container>
             <Navbar.Brand href="#">Order Management</Navbar.Brand>
               <Nav className="me-auto">
-                <Nav.Link href="/ShowOrder">Order List</Nav.Link>
-                <Nav.Link href="/FormOrder">Add Order</Nav.Link>
+                <Nav.Link href="/ShowOrder">List</Nav.Link>
+                <Nav.Link href="/FormOrder">Add</Nav.Link>
               </Nav>
             </Container>
         </Navbar>
