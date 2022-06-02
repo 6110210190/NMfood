@@ -10,16 +10,16 @@ function FormOrder() {
       <Container style= {{ padding: '3rem' }}>
         <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Create Order</h1>
         <Form.Group className='mb-3'>
-          <Form.Control placeholder="ชื่อลูกค้า"/>
+          <Form.Control placeholder="Name"/>
         </Form.Group>
         <Form.Group className='mb-3'>
-          <Form.Control placeholder="ที่อยู่ลูกค้า"/>
+          <Form.Control placeholder="Address"/>
         </Form.Group>
         <Form.Group className='mb-3'>
-          <Form.Control placeholder="จำนวนชุด"/>
+          <Form.Control placeholder="Unit"/>
         </Form.Group>
         <Form.Group className='mb-3'>
-          <Form.Control placeholder="เบอร์โทรลูกค้า"/>
+          <Form.Control placeholder="Telephone Number"/>
         </Form.Group>
         <Button variant="primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
           บันทึก
