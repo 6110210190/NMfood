@@ -1,5 +1,6 @@
 
 import React from "react";
+import { Container } from "react-bootstrap";
 import Navbar from '../components/Navbar';
 
 function ShowOrder() {
@@ -8,7 +9,9 @@ function ShowOrder() {
   return (
     <div className="App">
       <Navbar/>
-       ShowOrder
+       <Container>
+         Order List
+       </Container>
     </div>
   );
 }

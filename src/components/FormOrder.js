@@ -22,7 +22,7 @@ function FormOrder() {
           <Form.Control placeholder="Telephone Number"/>
         </Form.Group>
         <Button variant="primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
-          บันทึก
+          Submit
         </Button>
       </Container>
        
