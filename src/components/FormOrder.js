@@ -1,6 +1,6 @@
 import { Container, Button, Form } from 'react-bootstrap';
 import Navbar from '../components/Navbar';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { db } from "../firebase";
 import { collection, addDoc } from '@firebase/firestore';
 
@@ -14,6 +14,7 @@ function FormOrder() {
 
   const createOrder = async () => {
       await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel})
+      
   }
 
   return (
