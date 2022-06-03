@@ -1,4 +1,4 @@
-import { Container, Button, Form } from 'react-bootstrap';
+import { Container, Button, Form, Modal } from 'react-bootstrap';
 import Navbar from '../components/Navbar';
 import React, { useState } from 'react';
 import { db } from "../firebase";
@@ -14,8 +14,13 @@ function FormOrder() {
 
   const createOrder = async () => {
       await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel})
-      
+      handleClose();
   }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div>
@@ -51,11 +56,26 @@ function FormOrder() {
           }}/>
         </Form.Group>
         <Button variant="primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
-          onClick={createOrder}
+          onClick={handleShow}
         >
           Submit
         </Button>
       </Container>
+
+      <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Notification</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Do you want save order?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={createOrder}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+      </Modal>
        
     </div>
   );
