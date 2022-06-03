@@ -50,7 +50,7 @@ function FormOrder() {
           }}/>
         </Form.Group>
         <Button variant="primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
-          onClick={createOrder}
+          onClick={createOrder} Link href="/ShowOrder"
         >
           Submit
         </Button>
