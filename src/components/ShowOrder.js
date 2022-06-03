@@ -29,7 +29,7 @@ function ShowOrder() {
     <div>
       <Navbar />
       <Container style= {{ padding: '3rem' }}>
-        <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}><h1>ออเดอร์ทั้งหมด</h1></h1>
+        <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Order List</h1>
         {order.map((order) => {
           return (
             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
@@ -45,7 +45,7 @@ function ShowOrder() {
                 </Card.Body>
                   <Card.Footer>
                     <Button variant="primary" type="submit"onClick={handleShow} style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
-                      ปิดออเดอร์
+                      complete
                     </Button>
                   </Card.Footer>
               </Card>
@@ -56,12 +56,12 @@ function ShowOrder() {
       
       <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>แจ้งเตือน</Modal.Title>
+            <Modal.Title>Notification</Modal.Title>
           </Modal.Header>
-          <Modal.Body>ยืนยันการปิดออเดอร์?</Modal.Body>
+          <Modal.Body><h1></h1>Delete Order Now?</Modal.Body>
           <Modal.Footer>
               <Button variant="secondary" onClick={handleClose}>
-                ยืนยัน
+                Close
               </Button>
           </Modal.Footer>
       </Modal>

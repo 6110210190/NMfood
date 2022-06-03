@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import React, { useState } from 'react';
 import { db } from "../firebase";
 import { collection, addDoc } from '@firebase/firestore';
+import ShowOrder from './ShowOrder';
 import { Link } from 'react-router-dom';
 
 
@@ -13,12 +14,9 @@ function FormOrder() {
   const [address, setAddress] = useState('');
   const [unit, setUnit] = useState(0);
   const [tel, setTel] = useState('');
-  const d = new Date();
-  const date = d.toLocaleString("th-TH", { timeZone: "UTC"});
- 
 
   const createOrder = async () => {
-      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel, date: date})
+      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel})
   }
 
   const [show, setShow] = useState(false);
