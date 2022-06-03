@@ -25,7 +25,7 @@ function ShowOrder() {
         {order.map((order) => {
           return (
             <div>
-              {" "}
+              <br/>
               <Card style={{ width: '18rem'}}>
                 <Card.Body>
                   <Card.Title>Customer: {order.name}</Card.Title>
