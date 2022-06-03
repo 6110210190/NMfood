@@ -25,7 +25,8 @@ function FormOrder() {
 
   function handleShow(){
     setShow(true);
-   createOrder();
+    createOrder();
+    
   }
 
 
@@ -78,9 +79,11 @@ function FormOrder() {
           </Modal.Header>
           <Modal.Body>Do you want save order?</Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
+            <Link to='/ShowOrder'>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </Link>
           </Modal.Footer>
       </Modal>
        
