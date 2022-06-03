@@ -24,7 +24,7 @@ function ShowOrder() {
         <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Order List</h1>
         {order.map((order) => {
           return (
-            <div>
+            <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
               <br/>
               <Card style={{ width: '18rem'}}>
                 <Card.Body>
