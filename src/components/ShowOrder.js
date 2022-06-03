@@ -29,21 +29,23 @@ function ShowOrder() {
     <div>
       <Navbar />
       <Container style= {{ padding: '3rem' }}>
-        <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Order List</h1>
+        {/* <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Order List</h1> */}
         {order.map((order) => {
           return (
             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
               <br/>
               <Card style={{ width: '18rem'}}>
                 <Card.Body>
-                  <Card.Title>Customer: {order.name}</Card.Title>
+                  <Card.Title>{order.name}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">{order.address}</Card.Subtitle>
                   <Card.Text>
-                    Unit: {order.unit} <br/>
-                    tel: {order.tel} 
+                    <b>จำนวน:</b> {order.unit} ชุด <br/>
+                    <b>โทร:</b> {order.tel} <br/>
+                    <b>เวลา:</b> {order.date}
                   </Card.Text>
                 </Card.Body>
                   <Card.Footer>
+                     
                     <Button variant="primary" type="submit"onClick={handleShow} style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
                       complete
                     </Button>

@@ -14,7 +14,13 @@ function FormOrder() {
   const [unit, setUnit] = useState(0);
   const [tel, setTel] = useState('');
   const d = new Date();
-  const date = d.toLocaleString("th-TH", { timeZone: "UTC"});
+  const date = d.toLocaleString("th-TH", { 
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric'
+  });
  
 
   const createOrder = async () => {
