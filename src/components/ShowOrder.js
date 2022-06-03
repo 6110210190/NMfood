@@ -34,10 +34,12 @@ function ShowOrder() {
                     Unit: {order.unit} <br/>
                     tel: {order.tel} 
                   </Card.Text>
-                  <Button variant="primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
-                    complete
-                  </Button>
                 </Card.Body>
+                  <Card.Footer>
+                    <Button variant="primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
+                      complete
+                    </Button>
+                  </Card.Footer>
               </Card>
             </div>
           );

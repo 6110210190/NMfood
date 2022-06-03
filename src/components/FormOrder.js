@@ -3,6 +3,9 @@ import Navbar from '../components/Navbar';
 import React, { useState } from 'react';
 import { db } from "../firebase";
 import { collection, addDoc } from '@firebase/firestore';
+import ShowOrder from './ShowOrder';
+import { Link } from 'react-router-dom';
+
 
 function FormOrder() {
   const orderCollectionRef = collection(db, "order");
@@ -14,13 +17,17 @@ function FormOrder() {
 
   const createOrder = async () => {
       await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel})
-      handleClose();
   }
 
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+
+  function handleShow(){
+    setShow(true);
+   createOrder();
+  }
+
 
   return (
     <div>
@@ -44,6 +51,7 @@ function FormOrder() {
         <Form.Group className='mb-3'>
           <Form.Control 
             placeholder="Unit"
+            type='number'
             onChange={(e) => {
             setUnit(e.target.value);
           }}/>
@@ -57,7 +65,9 @@ function FormOrder() {
         </Form.Group>
         <Button variant="primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
           onClick={handleShow}
+         
         >
+
           Submit
         </Button>
       </Container>
@@ -70,9 +80,6 @@ function FormOrder() {
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
               Close
-            </Button>
-            <Button variant="primary" onClick={createOrder}>
-              Save Changes
             </Button>
           </Modal.Footer>
       </Modal>
