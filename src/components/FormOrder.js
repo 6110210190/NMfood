@@ -40,26 +40,25 @@ function FormOrder() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar  />
       <Container style= {{ padding: '3rem' }}>
-        <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Create Order</h1>
         <Form.Group className='mb-3'>
           <Form.Control 
-            placeholder="Name" 
+            placeholder="ลูกค้า" 
             onChange={(e) => {
             setName(e.target.value);
           }}/>
         </Form.Group>
         <Form.Group className='mb-3'>
           <Form.Control 
-            placeholder="Address"
+            placeholder="ที่อยู่"
             onChange={(e) => {
               setAddress(e.target.value);
             }}/>
         </Form.Group>
         <Form.Group className='mb-3'>
           <Form.Control 
-            placeholder="Unit"
+            placeholder="จำนวนชุด"
             type='number'
             onChange={(e) => {
             setUnit(e.target.value);
@@ -67,17 +66,17 @@ function FormOrder() {
         </Form.Group>
         <Form.Group className='mb-3'>
           <Form.Control 
-            placeholder="Telephone Number"
+            placeholder="เบอร์โทรติดต่อ"
             onChange={(e) => {
             setTel(e.target.value);
           }}/>
         </Form.Group>
-        <Button variant="primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
+        <Button variant="outline-primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
           onClick={handleShow}
          
         >
 
-          Submit
+          สร้างออเดอร์
         </Button>
       </Container>
 

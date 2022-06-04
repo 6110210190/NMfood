@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import { db } from "../firebase";
 import { collection, getDocs, orderBy } from '@firebase/firestore';
-import { Card, Button, Modal, Container } from 'react-bootstrap';
+import { Card, Button, Modal, Container} from 'react-bootstrap';
 
 
 function ShowOrder() {
@@ -29,7 +29,7 @@ function ShowOrder() {
     <div>
       <Navbar />
       <Container style= {{ padding: '3rem' }}>
-        {/* <h1 style={{textAlign: 'center', paddingBottom: '1rem'}}>Order List</h1> */}
+
         {order.map((order) => {
           return (
             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
@@ -46,8 +46,8 @@ function ShowOrder() {
                 </Card.Body>
                   <Card.Footer>
                      
-                    <Button variant="primary" type="submit"onClick={handleShow} style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
-                      complete
+                    <Button variant="outline-primary" type="submit"onClick={handleShow} style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
+                      ดำเนินการ
                     </Button>
                   </Card.Footer>
               </Card>
@@ -58,12 +58,15 @@ function ShowOrder() {
       
       <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Notification</Modal.Title>
+            <Modal.Title>แจ้งเตือน</Modal.Title>
           </Modal.Header>
-          <Modal.Body><h1></h1>Delete Order Now?</Modal.Body>
+          <Modal.Body><h1></h1>ปิดออเดอร์ หรือ แก้ไขออเดอร์</Modal.Body>
           <Modal.Footer>
-              <Button variant="secondary" onClick={handleClose}>
-                Close
+              <Button variant="outline-primary" onClick={handleClose}>
+                แก้ไขออเดอร์
+              </Button>
+              <Button variant="outline-success" onClick={handleClose}>
+                ปิดออเดอร์
               </Button>
           </Modal.Footer>
       </Modal>
