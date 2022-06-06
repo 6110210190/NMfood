@@ -5,12 +5,13 @@ import FormOrder from './components/FormOrder'
 // import ShowOrder from './components/ShowOrder'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ShowOrder from './components/ShowOrder';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path='/' element={<App />} />
+      <Route path='/' element={<ShowOrder />} />
       <Route path="FormOrder" element={<FormOrder />} />
       {/* <Route path="ShowOrder" element={<ShowOrder />} /> */}
     </Routes> 
