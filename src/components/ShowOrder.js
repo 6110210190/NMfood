@@ -47,7 +47,6 @@ function ShowOrder() {
                   <Card.Text>
                     <b>จำนวน:</b> {order.unit} ชุด <br/>
                     <b>โทร:</b> {order.tel} <br/>
-                    <b>เวลา:</b> {order.date}
                   </Card.Text>
                 </Card.Body>
                   <Card.Footer>
