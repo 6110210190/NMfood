@@ -4,7 +4,7 @@ import { db } from "../firebase";
 import { collection, getDocs, deleteDoc, doc } from '@firebase/firestore';
 import { Card, Button, Modal, Container, Navbar, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
+import Menu from './Menu.js';
 
 function ShowOrder() {
   const [order , setOrder] = useState ([]);
@@ -32,14 +32,7 @@ function ShowOrder() {
   }, []);
   return (
     <div>
-      <Navbar bg="light" variant="light">
-                  <Container>
-                  <Navbar.Brand href="#"></Navbar.Brand>
-                    <Nav className="justify-content-end">
-                      <Nav.Link href="/FormOrder" ><Button variant="outline-primary" size="lg">เพิ่มออเดอร์</Button></Nav.Link>
-                    </Nav>
-                  </Container>
-              </Navbar>
+      <Menu/>
       <Container style= {{ padding: '3rem' , width:"100%"}}>
 
         {order.map((order) => {
