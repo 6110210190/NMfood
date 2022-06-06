@@ -1,14 +1,14 @@
 
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/Navbar';
 import { db } from "../firebase";
-import { collection, getDocs, orderBy } from '@firebase/firestore';
-import { Card, Button, Modal, Container} from 'react-bootstrap';
+import { collection, getDocs, deleteDoc, doc } from '@firebase/firestore';
+import { Card, Button, Modal, Container, Navbar, Nav} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 
 function ShowOrder() {
   const [order , setOrder] = useState ([]);
-  const orderCollectionRef = collection(db, "order");
+  const orderCollectionRef = collection(db, "order"); 
 
   const [show, setShow] = useState(false);
 
@@ -18,22 +18,35 @@ function ShowOrder() {
     setShow(true);
   }
 
+  const handleDelete = async (id) => {
+    const orderDoc = doc(db, "order", id);
+    await deleteDoc(orderDoc);
+  };
+
   useEffect (() => {
     const getOrder = async() => {
-      const data = await getDocs(orderCollectionRef, orderBy("date", "desc"));
+      const data = await getDocs(orderCollectionRef);
       setOrder(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
     };
     getOrder();
   }, []);
   return (
     <div>
-      <Navbar />
-      <Container style= {{ padding: '3rem' }}>
+      <Navbar bg="light" variant="light">
+                  <Container>
+                  <Navbar.Brand href="#"></Navbar.Brand>
+                    <Nav className="justify-content-end">
+                      <Nav.Link href="/FormOrder" ><Button variant="outline-primary" size="lg">เพิ่มออเดอร์</Button></Nav.Link>
+                    </Nav>
+                  </Container>
+              </Navbar>
+      <Container style= {{ padding: '3rem' , width:"100%"}}>
 
         {order.map((order) => {
           return (
+            
             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
-              <br/>
+             
               <Card style={{ width: '18rem'}}>
                 <Card.Body>
                   <Card.Title>{order.name}</Card.Title>
@@ -45,12 +58,14 @@ function ShowOrder() {
                   </Card.Text>
                 </Card.Body>
                   <Card.Footer>
-                     
-                    <Button variant="outline-primary" type="submit"onClick={handleShow} style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
+                
+                    <Button variant="outline-primary" onClick={() => {handleDelete(order.id)}} style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
                       ดำเนินการ
                     </Button>
+                
                   </Card.Footer>
               </Card>
+              <br/>
             </div>
           );
         })}
@@ -65,7 +80,7 @@ function ShowOrder() {
               <Button variant="outline-primary" onClick={handleClose}>
                 แก้ไขออเดอร์
               </Button>
-              <Button variant="outline-success" onClick={handleClose}>
+              <Button variant="outline-success" onClick={() => {handleDelete(order.id)}}>
                 ปิดออเดอร์
               </Button>
           </Modal.Footer>

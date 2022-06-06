@@ -1,5 +1,5 @@
 import { Container, Button, Form, Modal } from 'react-bootstrap';
-import Navbar from '../components/Navbar';
+
 import React, { useState } from 'react';
 import { db } from "../firebase";
 import { collection, addDoc } from '@firebase/firestore';
@@ -14,17 +14,17 @@ function FormOrder() {
   const [unit, setUnit] = useState(0);
   const [tel, setTel] = useState('');
   const d = new Date();
-  const date = d.toLocaleString("th-TH", { 
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric'
-  });
- 
+  const datestamp = d.toLocaleString( { 
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric'
+    });
+
 
   const createOrder = async () => {
-      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel, date: date})
+      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel, datestamp: datestamp});
   }
 
   const [show, setShow] = useState(false);
@@ -32,15 +32,12 @@ function FormOrder() {
   const handleClose = () => setShow(false);
 
   function handleShow(){
-    setShow(true);
-    createOrder();
-    
+    setShow(true);  
   }
-
+ 
 
   return (
     <div>
-      <Navbar  />
       <Container style= {{ padding: '3rem' }}>
         <Form.Group className='mb-3'>
           <Form.Control 
@@ -71,24 +68,45 @@ function FormOrder() {
             setTel(e.target.value);
           }}/>
         </Form.Group>
-        <Button variant="outline-primary" type="submit" style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
+        <div style={{ textAlign: 'center'}}>
+        <br/>
+          <Button 
+          variant="outline-primary" 
+          type="submit" 
+          style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
           onClick={handleShow}
-         
         >
-
           สร้างออเดอร์
         </Button>
+          <br/>
+        <Link to='/'>
+          <Button 
+            style={{textAlign:'centers'}}
+            variant="outline-success">
+            กลับหน้าหลัก
+          </Button>
+        </Link>
+
+        </div>
+        
+      
       </Container>
 
       <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>Notification</Modal.Title>
+            <Modal.Title>แจ้งเตือน</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Do you want save order?</Modal.Body>
+          <Modal.Body>บันทึกออเดอร์หรือไม่?</Modal.Body>
           <Modal.Footer>
-            <Link to='/ShowOrder'>
+            
+            <Link to='/'>
+              <Button variant="secondary" onClick={createOrder}>
+                บันทึก
+              </Button>
+            </Link>
+            <Link to='/'>
               <Button variant="secondary" onClick={handleClose}>
-                Close
+                ยกเลิก
               </Button>
             </Link>
           </Modal.Footer>

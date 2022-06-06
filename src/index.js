@@ -12,7 +12,7 @@ root.render(
     <Routes>
       <Route path='/' element={<App />} />
       <Route path="FormOrder" element={<FormOrder />} />
-      <Route path="ShowOrder" element={<ShowOrder />} />
+      {/* <Route path="ShowOrder" element={<ShowOrder />} /> */}
     </Routes> 
   </BrowserRouter>
 );
