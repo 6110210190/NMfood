@@ -9,7 +9,7 @@ function Menu  () {
             <Container>
                 <Navbar.Brand href="#"></Navbar.Brand>
                 <Nav className="justify-content-end">
-                    <Nav.Link href="/FormOrder" ><Button variant="outline-primary" size="lg">เพิ่มออเดอร์</Button></Nav.Link>
+                    <Nav.Link href="/FormOrder" ><Button variant="outline-primary" size="lg">Add Order</Button></Nav.Link>
                 </Nav>
             </Container>
         </Navbar>

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { db } from "../firebase";
-import { collection, getDocs, deleteDoc, doc } from '@firebase/firestore';
+import { collection, getDocs, deleteDoc, doc, orderBy} from '@firebase/firestore';
 import { Card, Button, Modal, Container, Navbar, Nav} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Menu from './Menu.js';
@@ -9,6 +9,7 @@ import Menu from './Menu.js';
 function ShowOrder() {
   const [order , setOrder] = useState ([]);
   const orderCollectionRef = collection(db, "order"); 
+
 
   const [show, setShow] = useState(false);
 
@@ -52,7 +53,7 @@ function ShowOrder() {
                   <Card.Footer>
                 
                     <Button variant="outline-primary" onClick={() => {handleDelete(order.id)}} style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
-                      ดำเนินการ
+                      Order action
                     </Button>
                 
                   </Card.Footer>
@@ -67,14 +68,16 @@ function ShowOrder() {
           <Modal.Header closeButton>
             <Modal.Title>แจ้งเตือน</Modal.Title>
           </Modal.Header>
-          <Modal.Body><h1></h1>ปิดออเดอร์ หรือ แก้ไขออเดอร์</Modal.Body>
+          <Modal.Body>ปิดออเดอร์ หรือ แก้ไขออเดอร์</Modal.Body>
           <Modal.Footer>
               <Button variant="outline-primary" onClick={handleClose}>
                 แก้ไขออเดอร์
-              </Button>
+              </Button> 
               <Button variant="outline-success" onClick={() => {handleDelete(order.id)}}>
                 ปิดออเดอร์
               </Button>
+
+              
           </Modal.Footer>
       </Modal>
     </div>

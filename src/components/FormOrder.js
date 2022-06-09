@@ -2,7 +2,7 @@ import { Container, Button, Form, Modal } from 'react-bootstrap';
 
 import React, { useState } from 'react';
 import { db } from "../firebase";
-import { collection, addDoc } from '@firebase/firestore';
+import { collection, addDoc, Timestamp } from '@firebase/firestore';
 import { Link } from 'react-router-dom';
 import Menu from '../components/Menu';
 
@@ -13,14 +13,14 @@ function FormOrder() {
   const [address, setAddress] = useState('');
   const [unit, setUnit] = useState(0);
   const [tel, setTel] = useState('');
-  const d = new Date();
-  const datestamp = d.toLocaleString( { 
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-      hour: 'numeric',
-      minute: 'numeric'
-    });
+  const datestamp = Timestamp.now().toDate().toString();
+  // const  = d.toLocaleString( { 
+  //     day: 'numeric',
+  //     month: 'long',
+  //     year: 'numeric',
+  //     hour: 'numeric',
+  //     minute: 'numeric'
+  //   });
 
 
   const createOrder = async () => {
@@ -41,21 +41,21 @@ function FormOrder() {
       <Container style= {{ padding: '3rem' }}>
         <Form.Group className='mb-3'>
           <Form.Control 
-            placeholder="ลูกค้า" 
+            placeholder="Customer Name" 
             onChange={(e) => {
             setName(e.target.value);
           }}/>
         </Form.Group>
         <Form.Group className='mb-3'>
           <Form.Control 
-            placeholder="ที่อยู่"
+            placeholder="Address"
             onChange={(e) => {
               setAddress(e.target.value);
             }}/>
         </Form.Group>
         <Form.Group className='mb-3'>
           <Form.Control 
-            placeholder="จำนวนชุด"
+            placeholder="Unit"
             type='number'
             onChange={(e) => {
             setUnit(e.target.value);
@@ -63,50 +63,56 @@ function FormOrder() {
         </Form.Group>
         <Form.Group className='mb-3'>
           <Form.Control 
-            placeholder="เบอร์โทรติดต่อ"
+            placeholder="Telephone Number"
             onChange={(e) => {
             setTel(e.target.value);
           }}/>
         </Form.Group>
-        <div style={{ textAlign: 'center'}}>
-        <br/>
-          <Button 
-          variant="outline-primary" 
-          type="submit" 
-          style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}
-          onClick={handleShow}
-        >
-          สร้างออเดอร์
-        </Button>
-          <br/>
-        <Link to='/'>
-          <Button 
-            style={{textAlign:'centers'}}
-            variant="outline-success">
-            กลับหน้าหลัก
-          </Button>
-        </Link>
-
+        
+        <div style={{float: 'right'}}>
+           <Button 
+              variant="outline-primary" 
+              type="submit" 
+              style={{marginRight: '.5cm'}}
+              onClick={handleShow}
+            >
+              Create
+            </Button>
+          
+            <Link to='/'>
+              <Button 
+                // style={{textAlign:'centers', marginTop: '1rem'}}
+                variant="outline-success">
+                Cancel
+              </Button>
+            </Link>
+          
+        
+          
         </div>
+        
+        
+
+        
         
       
       </Container>
 
       <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
-            <Modal.Title>แจ้งเตือน</Modal.Title>
+            <Modal.Title>Notification</Modal.Title>
           </Modal.Header>
-          <Modal.Body>บันทึกออเดอร์หรือไม่?</Modal.Body>
+          <Modal.Body>Create the order?</Modal.Body>
           <Modal.Footer>
             
             <Link to='/'>
               <Button variant="secondary" onClick={createOrder}>
-                บันทึก
+                Submit
               </Button>
             </Link>
             <Link to='/'>
               <Button variant="secondary" onClick={handleClose}>
-                ยกเลิก
+                Cancel
               </Button>
             </Link>
           </Modal.Footer>
