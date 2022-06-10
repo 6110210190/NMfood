@@ -5,14 +5,25 @@ import {  Button, Container, Navbar, Nav} from 'react-bootstrap';
 function Menu  () {
   return (
     <div> 
-        <Navbar bg="light" variant="light">
-            <Container>
-                <Navbar.Brand href="#"></Navbar.Brand>
-                <Nav className="justify-content-end">
-                    <Nav.Link href="/FormOrder" ><Button variant="outline-primary" size="lg">Add Order</Button></Nav.Link>
-                </Nav>
-            </Container>
-        </Navbar>
+      <Navbar bg="light" variant="light">
+        <Container>
+          <Navbar.Brand 
+            href="#">
+          </Navbar.Brand>
+          <Nav className="justify-content-end">
+            <Nav.Link 
+              href="/FormOrder" 
+            >
+              <Button 
+                variant="outline-primary" 
+                size="lg"
+              >
+                Add Order
+              </Button>
+            </Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
     </div>
   )
 }
