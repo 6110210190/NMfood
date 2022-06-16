@@ -37,7 +37,13 @@ function ShowOrder() {
       <Container style= {{ padding: '3rem' , width:"100%"}}>
 
         {order.map((order) => {
-
+          const s = order.status;
+        let st = '';
+         if (s == false){
+          st = "not active";
+         } else {
+          st = "active";
+         }
           return (
 
             <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
@@ -46,9 +52,9 @@ function ShowOrder() {
                   <Card.Title>{order.name}</Card.Title>
                   <Card.Subtitle className="mb-2 text-muted">{order.address}</Card.Subtitle>
                   <Card.Text>
-                    <b>Unit:</b> {order.unit} ชุด <br/>
+                    <b>Unit:</b> {order.unit} <br/>
                     <b>Tel:</b> {order.tel} <br/>
-                    <b>Status:</b> {order.stutus}
+                    <b>Status:</b> {st}
                   </Card.Text>
                 </Card.Body>
                 <Card.Footer>
