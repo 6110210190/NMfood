@@ -36,7 +36,7 @@ function ShowOrder() {
   return (
     <div>
       <Menu/>
-      <div style={{margin: '50px'}}>
+      <div style={{margin: '20px'}}>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
               <TableHead>
