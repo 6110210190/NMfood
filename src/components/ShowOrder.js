@@ -41,9 +41,9 @@ function ShowOrder() {
             <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
               <TableHead>
                 <TableRow>
-                  <TableCell style={{width: '.5cm'}} align='center' ><b>No.</b></TableCell>
-                  <TableCell style={{width: '200px'}} align='center'><b>Name</b></TableCell>
-                  <TableCell style={{width: '500px'}} align='center'><b>Address</b></TableCell>
+                  <TableCell align='center' ><b>No.</b></TableCell>
+                  <TableCell align='center'><b>Name</b></TableCell>
+                  <TableCell align='center'><b>Address</b></TableCell>
                   <TableCell align='center'>
                     <b>
                       Action
