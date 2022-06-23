@@ -12,6 +12,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
 function ShowOrder() {
 
@@ -62,7 +63,11 @@ function ShowOrder() {
                     <TableCell align='left'>{order.name}</TableCell>
                     <TableCell align='left'>{order.address}</TableCell>
                     <TableCell align='center'>
-                      <Button variant='outlined'>Submit</Button>
+                      <Button>
+                        <VisibilityOutlinedIcon color="primary">
+                          {/* see more code */}
+                        </VisibilityOutlinedIcon>
+                      </Button>
                     </TableCell>
                   </TableRow>
                 ))}
