@@ -1,99 +1,79 @@
 
 import React, { useState, useEffect } from 'react';
 import { db } from "../firebase";
-import { collection, getDocs, deleteDoc, doc, where, query} from '@firebase/firestore';
-import { Card, Button, Modal, Container, Navbar, Nav} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import Menu from './Menu.js';
+import { collection, getDocs, deleteDoc, doc, where, query, onSnapshot} from '@firebase/firestore';
+import Menu from './Menu';
+
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
 
 function ShowOrder() {
 
   const [order , setOrder] = useState ([]);
-  const orderRef = collection(db, "order");
-  const q = query(orderRef, where("status", "==", false));
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleDelete = async (id) => {
-    const orderDoc = doc(db, "order", id);
-    await deleteDoc(orderDoc);
-  };
-
-  function handleShow(){
-    setShow(true);
-  }
-
-  useEffect (() => {
-    const getOrder = async() => {
-      const data = await getDocs(q);
-      setOrder(data.docs.map((doc) => ({...doc.data(), id: doc.id})));
-    };
-    getOrder();
-  }, []);
+  
+  useEffect (
+    () => 
+      onSnapshot(collection(db, "order"), (snapshot) => 
+        setOrder(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+      ),
+    []
+  );
+  
+  
+  // const handleDelete = async (id) => {
+  //   const orderDoc = doc(db, "order", id);
+  //   await deleteDoc(orderDoc);
+  // };
 
   return (
     <div>
       <Menu/>
-
-      <Container style= {{ padding: '3rem' , width:"100%"}}>
-
-        {order.map((order) => {
-          const s = order.status;
-        let st = '';
-         if (s == false){
-          st = "not active";
-         } else {
-          st = "active";
-         }
-          return (
-
-            <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center' }}>
-              <Card style={{ width: '18rem'}}>
-                <Card.Body>
-                  <Card.Title>{order.name}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">{order.address}</Card.Subtitle>
-                  <Card.Text>
-                    <b>Unit:</b> {order.unit} <br/>
-                    <b>Tel:</b> {order.tel} <br/>
-                    <b>Status:</b> {st}
-                  </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                  <Button variant="outline-primary" onClick={handleShow} style={{display: 'block', marginLeft: 'auto', marginRight: 'auto' }}>
-                    Order action
-                  </Button>
-                    {/* onClick={() => {handleDelete(order.id)}} */}
-                </Card.Footer>
-              </Card>
-              <br/>
-            </div>
-
-          );
-
-        })}
-      </Container>
-      
-      <Modal show={show} onHide={handleClose}>
-
-          <Modal.Header closeButton>
-            <Modal.Title>Notification</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>What action do you want?</Modal.Body>
-          <Modal.Footer>
-            <Button variant="outline-primary" onClick={handleClose} disabled>
-              Edit order
-            </Button> 
-            <Button variant="outline-primary" onClick={() => {handleDelete(order.id)}} disabled>
-              Delete order
-            </Button>
-            <Button variant="outline-success" onClick={handleClose} disabled>
-              Complete order
-            </Button>
-          </Modal.Footer>
-
-      </Modal>
-    
+        <TableContainer component={Card}>
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>No.</TableCell>
+                <TableCell align='center'>Name</TableCell>
+                <TableCell align='center'>Address</TableCell>
+                <TableCell align='center'>Unit</TableCell>
+                <TableCell align='center'>Tel.</TableCell>
+                <TableCell align='center'>
+                  Action
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {order.map((order) => (
+                <TableRow
+                  key={order.no}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {order.no}
+                  </TableCell>
+                  <TableCell align='center'>{order.name}</TableCell>
+                  <TableCell align='left'>{order.address}</TableCell>
+                  <TableCell align='center'>{order.unit}</TableCell>
+                  <TableCell align='center'>{order.tel}</TableCell>
+                  <TableCell align='center'>
+                    <Button variant='outlined'>Submit</Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
     </div>
-
+    
+    
   );
 
 } export default ShowOrder;

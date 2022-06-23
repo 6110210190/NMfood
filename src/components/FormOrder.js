@@ -8,26 +8,27 @@ import Menu from '../components/Menu';
 
 function FormOrder() {
 
-  const orderCollectionRef = collection(db, "order");
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
-  const [unit, setUnit] = useState(0);
-  const [tel, setTel] = useState('');
-  const [status, setStatus] = useState(false);
-  const createOrder = async () => {
-      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel, status: status});
-  }
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+  // const orderCollectionRef = collection(db, "order");
+  // const [name, setName] = useState('');
+  // const [address, setAddress] = useState('');
+  // const [unit, setUnit] = useState(0);
+  // const [tel, setTel] = useState('');
+  // const [status, setStatus] = useState(false);
   
-  function handleShow(){
-    setShow(true);  
-  }
+  // const createOrder = async () => {
+  //     await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel, status: status});
+  // }
+  // const [show, setShow] = useState(false);
+  // const handleClose = () => setShow(false);
+  
+  // function handleShow(){
+  //   setShow(true);  
+  // }
 
   return (
 
     <div>
-      <Container style= {{ padding: '3rem' }}>
+      {/* <Container style= {{ padding: '3rem' }}>
         <Form.Group className='mb-3'>
           <Form.Control 
             placeholder="Customer Name" 
@@ -104,7 +105,7 @@ function FormOrder() {
             </Link>
           </Modal.Footer>
       </Modal>
-       
+        */}
     </div>
   );
 }

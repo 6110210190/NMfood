@@ -1,6 +1,6 @@
 import React from 'react'
 import {  Button, Container, Navbar, Nav} from 'react-bootstrap';
-
+import Icon from '@mui/material/Icon';
 
 function Menu  () {
   return (
@@ -8,18 +8,15 @@ function Menu  () {
       <Navbar bg="light" variant="light">
         <Container>
           <Navbar.Brand 
-            href="#">
+            href="#"
+          >
+            Order Management
           </Navbar.Brand>
           <Nav className="justify-content-end">
             <Nav.Link 
               href="/FormOrder" 
             >
-              <Button 
-                variant="outline-primary" 
-                size="lg"
-              >
-                Add Order
-              </Button>
+            <Icon fontSize="large" color="primary">add_circle</Icon>
             </Nav.Link>
           </Nav>
         </Container>
