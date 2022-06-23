@@ -1,6 +1,7 @@
 import React from 'react'
 import {  Button, Container, Navbar, Nav} from 'react-bootstrap';
 import Icon from '@mui/material/Icon';
+import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
 
 function Menu  () {
   return (
@@ -16,7 +17,8 @@ function Menu  () {
             <Nav.Link 
               href="/FormOrder" 
             >
-            <Icon fontSize="large" color="primary">add_circle</Icon>
+            <ControlPointOutlinedIcon fontSize="large" color="primary">add_circle</ControlPointOutlinedIcon>
+            
             </Nav.Link>
           </Nav>
         </Container>

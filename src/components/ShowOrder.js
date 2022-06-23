@@ -12,7 +12,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import Card from '@mui/material/Card';
 
 function ShowOrder() {
 
@@ -36,44 +35,42 @@ function ShowOrder() {
   return (
     <div>
       <Menu/>
-        <TableContainer component={Card}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-              <TableRow>
-                <TableCell>No.</TableCell>
-                <TableCell align='center'>Name</TableCell>
-                <TableCell align='center'>Address</TableCell>
-                <TableCell align='center'>Unit</TableCell>
-                <TableCell align='center'>Tel.</TableCell>
-                <TableCell align='center'>
-                  Action
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {order.map((order) => (
-                <TableRow
-                  key={order.no}
-                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                  <TableCell component="th" scope="row">
-                    {order.no}
-                  </TableCell>
-                  <TableCell align='center'>{order.name}</TableCell>
-                  <TableCell align='left'>{order.address}</TableCell>
-                  <TableCell align='center'>{order.unit}</TableCell>
-                  <TableCell align='center'>{order.tel}</TableCell>
+      <div style={{margin: '50px'}}>
+        <TableContainer component={Paper}>
+            <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
+              <TableHead>
+                <TableRow>
+                  <TableCell style={{width: '.5cm'}} align='center' ><b>No.</b></TableCell>
+                  <TableCell style={{width: '200px'}} align='center'><b>Name</b></TableCell>
+                  <TableCell style={{width: '500px'}} align='center'><b>Address</b></TableCell>
                   <TableCell align='center'>
-                    <Button variant='outlined'>Submit</Button>
+                    <b>
+                      Action
+                    </b>
                   </TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
-    </div>
-    
-    
+              </TableHead>
+              <TableBody>
+                {order.map((order) => (
+                  <TableRow
+                    key={order.no}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell align='center' component="th" scope="row">
+                      {order.no}
+                    </TableCell>
+                    <TableCell align='left'>{order.name}</TableCell>
+                    <TableCell align='left'>{order.address}</TableCell>
+                    <TableCell align='center'>
+                      <Button variant='outlined'>Submit</Button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+      </div>  
+    </div>  
   );
 
 } export default ShowOrder;
