@@ -11,7 +11,7 @@ function Menu  () {
           <Navbar.Brand 
             href="#"
           >
-            Order Management
+            <h1>Order Management</h1>
           </Navbar.Brand>
           <Nav className="justify-content-end">
             <Nav.Link 

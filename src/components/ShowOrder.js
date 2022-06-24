@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { db } from "../firebase";
 import { collection, getDocs, deleteDoc, doc, where, query, onSnapshot} from '@firebase/firestore';
 import Menu from './Menu';
+import '../components/Style.css'
+
 
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -21,6 +23,7 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 
 function ShowOrder() {
+
 
   const [order , setOrder] = useState ([]);
   const [show, setShow] = useState(false);
@@ -54,14 +57,14 @@ function ShowOrder() {
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
               <TableHead>
-                <TableRow>
-                  <TableCell align='center' ><b>No.</b></TableCell>
-                  <TableCell align='center'><b>Customer Name</b></TableCell>
-                  <TableCell align='center'><b>Customer Address</b></TableCell>
+                <TableRow className='font'>
+                  <TableCell align='center' ><h5>No.</h5></TableCell>
+                  <TableCell align='center'><h5>Customer Name</h5></TableCell>
+                  <TableCell align='center'><h5>Customer Address</h5></TableCell>
                   <TableCell align='center'>
-                    <b>
+                    <h5>
                       See more
-                    </b>
+                    </h5>
                   </TableCell>
                 </TableRow>
               </TableHead>
