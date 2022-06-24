@@ -75,10 +75,10 @@ function ShowOrder() {
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                     <TableCell align='center' component="th" scope="row">
-                      {order.no}
+                      <h5>{order.no}</h5>
                     </TableCell>
-                    <TableCell align='center'>{order.name}</TableCell>
-                    <TableCell align='center'>{order.address}</TableCell>
+                    <TableCell align='center'><h5>{order.name}</h5></TableCell>
+                    <TableCell align='center'><h5>{order.address}</h5></TableCell>
                     <TableCell align='center'>
                       <Button>
                         <MoreHorizIcon color="primary" onClick={handleToggle}>
