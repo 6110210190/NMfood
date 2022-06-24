@@ -58,13 +58,13 @@ function ShowOrder() {
             <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
               <TableHead>
                 <TableRow className='font'>
-                  <TableCell align='center' ><h5>No.</h5></TableCell>
-                  <TableCell align='center'><h5>Customer Name</h5></TableCell>
-                  <TableCell align='center'><h5>Customer Address</h5></TableCell>
+                  <TableCell align='center' ><h5><b>No.</b></h5></TableCell>
+                  <TableCell align='center'><h5><b>Customer Name</b></h5></TableCell>
+                  <TableCell align='center'><h5><b>Customer Address</b></h5></TableCell>
                   <TableCell align='center'>
-                    <h5>
+                    <h5><b>
                       See more
-                    </h5>
+                    </b></h5>
                   </TableCell>
                 </TableRow>
               </TableHead>
