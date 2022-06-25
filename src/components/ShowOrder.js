@@ -60,7 +60,7 @@ function ShowOrder() {
                 <TableRow className='font'>
                   <TableCell style={{backgroundColor:'red'}} align='center'><h5><b>ชื่อ</b></h5></TableCell>
                   <TableCell style={{backgroundColor:'green'}} align='center'><h5><b>ที่อยู่</b></h5></TableCell>
-                  <TableCell style={{backgroundColor:'orange'}} align='center'><h5><b>จำนวน</b></h5></TableCell>
+                  <TableCell style={{backgroundColor:'orange', width:'3px'}} align='center'><h5><b>จำนวน</b></h5></TableCell>
                   <TableCell style={{backgroundColor:'blue'}} align='center'>
                     <h5><b>
                       เพิ่มเติม
