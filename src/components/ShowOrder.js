@@ -73,7 +73,7 @@ function ShowOrder() {
                     key={order.name}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-                    <TableCell align='left'><h5>{order.name}</h5></TableCell>
+                    <TableCell align='center'><h5>{order.name}</h5></TableCell>
                     <TableCell align='center'><h5>{order.unit}</h5></TableCell>
                     <TableCell align='center'>
                       <Button>
