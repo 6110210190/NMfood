@@ -53,12 +53,11 @@ function ShowOrder() {
   return (
     <div>
       <Menu/>
-      <div style={{margin: '30px'}}>
+      <div>
         <TableContainer component={Paper}>
             <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
               <TableHead>
                 <TableRow className='font'>
-                  <TableCell align='center' ><h5><b>No.</b></h5></TableCell>
                   <TableCell align='center'><h5><b>Customer Name</b></h5></TableCell>
                   <TableCell align='center'><h5><b>Customer Address</b></h5></TableCell>
                   <TableCell align='center'>
@@ -71,12 +70,9 @@ function ShowOrder() {
               <TableBody>
                 {order.map((order) => (
                   <TableRow
-                    key={order.no}
+                    key={order.name}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-                    <TableCell align='center' component="th" scope="row">
-                      <h5>{order.no}</h5>
-                    </TableCell>
                     <TableCell align='center'><h5>{order.name}</h5></TableCell>
                     <TableCell align='center'><h5>{order.address}</h5></TableCell>
                     <TableCell align='center'>
