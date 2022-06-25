@@ -53,14 +53,14 @@ function ShowOrder() {
   return (
     <div>
       <Menu/>
-      <div>
+      <div style={{margin: '10px'}}>
         <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} size="medium" aria-label="a dense table">
+            <Table sx={{ minWidth: 350 }} size="medium" aria-label="a dense table">
               <TableHead>
                 <TableRow className='font'>
-                  <TableCell align='center'><h5><b>ชื่อ</b></h5></TableCell>
-                  <TableCell align='center'><h5><b>ที่อยู่</b></h5></TableCell>
-                  <TableCell align='center'>
+                  <TableCell style={{backgroundColor:'red'}} align='center'><h5><b>ชื่อ</b></h5></TableCell>
+                  <TableCell style={{backgroundColor:'green'}} align='center'><h5><b>ที่อยู่</b></h5></TableCell>
+                  <TableCell style={{backgroundColor:'blue'}} align='center'>
                     <h5><b>
                       เพิ่มเติม
                     </b></h5>
