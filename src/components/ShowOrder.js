@@ -54,7 +54,7 @@ function ShowOrder() {
     <div>
       <Menu/>
       <div style={{margin: '10px'}}>
-        <TableContainer component={Paper} sx={{ minWidth: 350}}>
+        <TableContainer component={Paper} sx={{ minWidth: 400}}>
             <Table sx={{ minWidth: 350}} size="medium" aria-label="a dense table">
               <TableHead>
                 <TableRow className='font'>
