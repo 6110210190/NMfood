@@ -54,14 +54,13 @@ function ShowOrder() {
     <div>
       <Menu/>
       <div>
-        <TableContainer component={Paper} sx={{ minWidth: 350}}>
+        <TableContainer component={Paper} sx={{ minWidth: 350, maxWidth: 1000, margin: 'auto', marginTop: 5}}>
             <Table sx={{ minWidth: 350}} size="medium" aria-label="a dense table">
               <TableHead>
                 <TableRow className='font'>
-                  <TableCell style={{backgroundColor:'red'}} align='center'><h5><b>ชื่อ</b></h5></TableCell>
-                  <TableCell style={{backgroundColor:'green'}} align='center'><h5><b>ที่อยู่</b></h5></TableCell>
-                  <TableCell style={{backgroundColor:'orange', width:'3px'}} align='center'><h5><b>จำนวน</b></h5></TableCell>
-                  <TableCell style={{backgroundColor:'blue'}} align='center'>
+                  <TableCell align='center'><h5><b>ชื่อ</b></h5></TableCell>
+                  <TableCell align='center'><h5><b>จำนวน</b></h5></TableCell>
+                  <TableCell align='center'>
                     <h5><b>
                       เพิ่มเติม
                     </b></h5>
@@ -75,7 +74,6 @@ function ShowOrder() {
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                     <TableCell align='left'><h5>{order.name}</h5></TableCell>
-                    <TableCell align='left'><h5>{order.address}</h5></TableCell>
                     <TableCell align='center'><h5>{order.unit}</h5></TableCell>
                     <TableCell align='center'>
                       <Button>
