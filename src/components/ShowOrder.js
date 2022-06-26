@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { db } from "../firebase";
-import { collection, getDocs, deleteDoc, doc, where, query, onSnapshot} from '@firebase/firestore';
+import { collection, getDoc, deleteDoc, doc, where, query, onSnapshot} from '@firebase/firestore';
 import Menu from './Menu';
 import '../components/Style.css'
 
@@ -21,16 +21,17 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
+import { async } from '@firebase/util';
 
 function ShowOrder() {
 
 
   const [order , setOrder] = useState ([]);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState({});
   
   useEffect (
     () => 
-      onSnapshot(collection(db, "order"), (snapshot) => 
+       onSnapshot(collection(db, "order"), (snapshot) => 
         setOrder(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
       ),
     []
@@ -40,11 +41,15 @@ function ShowOrder() {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleToggle = () => {
+
+  const handleToggle = async(id) => {
     setOpen(!open);
+
   };
 
-  
+  // const showPopup = async() => {
+
+  // }
   // const handleDelete = async (id) => {
   //   const orderDoc = doc(db, "order", id);
   //   await deleteDoc(orderDoc);
@@ -77,35 +82,32 @@ function ShowOrder() {
                     <TableCell align='center'><h5>{order.unit}</h5></TableCell>
                     <TableCell align='center'>
                       <Button>
-                        <MoreHorizIcon color="primary" onClick={handleToggle}>
-                          {/* see more code */}
-                        </MoreHorizIcon>
+                        <MoreHorizIcon color="primary" onClick={() => handleToggle(order.id)}/>
                       </Button>
-                      <Backdrop
-                        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-                        open={open}
-                        onClick={handleClose}
-                      >
-                        {/* <CircularProgress color="inherit" /> */}
-                        <Card sx={{ maxWidth: 345 }}>
-                          <CardActionArea>
-                          <CardContent>
-                            <Typography gutterBottom variant="h5" component="div">
-                              Data more
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              Data more
-                            </Typography>
-                          </CardContent>
-                          </CardActionArea>
-                        </Card>
-                      </Backdrop>
+                      
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
           </TableContainer>
+
+          <Backdrop
+            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            open={open}
+            onClick={handleClose}
+          >
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardContent>
+                   
+                  <Typography variant="body2" color="text.secondary">
+
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Backdrop>
       </div>  
     </div>  
   );
