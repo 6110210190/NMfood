@@ -5,18 +5,19 @@ import { collection, getDoc, deleteDoc, doc, where, query, onSnapshot} from '@fi
 import Menu from './Menu';
 import '../components/Style.css'
 
-
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Card from '@mui/material/Card';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import Backdrop from '@mui/material/Backdrop';
+
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+
 
 function ShowOrder() {
 
@@ -31,18 +32,6 @@ function ShowOrder() {
       ),
     []
   );
-  
-  const [open, setOpen] = useState(false);
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const [show, setShow] = useState({});
-  const handleToggle = async(id) => {
-    setOpen(!open);
-   
-  };
-
 
   const handleDelete = async (id) => {
     const orderDoc = doc(db, "order", id);
@@ -76,7 +65,9 @@ function ShowOrder() {
                     <TableCell align='center'><h5>{order.unit}</h5></TableCell>
                     <TableCell align='center'>
                       <Button>
-                        <MoreHorizIcon color="primary"/>
+                        <MoreHorizIcon color="primary">
+                
+                        </MoreHorizIcon>
                       </Button>
                       <Button>
                         <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}/>
@@ -89,13 +80,7 @@ function ShowOrder() {
             </Table>
           </TableContainer>
 
-          <Backdrop
-            sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-            open={open}
-            onClick={handleClose}
-          >
-            dsfsfd
-          </Backdrop>
+         
       </div>  
     </div>  
   );
