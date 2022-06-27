@@ -79,7 +79,7 @@ function ShowOrder() {
                         <MoreHorizIcon color="primary"/>
                       </Button>
                       <Button>
-                        <DeleteOutlineOutlinedIcon color="success" onClick={() => handleDelete(order.id)}/>
+                        <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}/>
                       </Button>
                       
                     </TableCell>
