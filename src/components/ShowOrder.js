@@ -44,10 +44,10 @@ function ShowOrder() {
   };
 
 
-  // const handleDelete = async (id) => {
-  //   const orderDoc = doc(db, "order", id);
-  //   await deleteDoc(orderDoc);
-  // };
+  const handleDelete = async (id) => {
+    const orderDoc = doc(db, "order", id);
+    await deleteDoc(orderDoc);
+  };
 
   return (
     <div>
@@ -79,7 +79,7 @@ function ShowOrder() {
                         <MoreHorizIcon color="primary" onClick={() => handleToggle(order.id)}/>
                       </Button>
                       <Button>
-                        <DeleteOutlineOutlinedIcon color="primary">
+                        <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}>
 
                         </DeleteOutlineOutlinedIcon>
                       </Button>
