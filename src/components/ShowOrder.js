@@ -16,18 +16,13 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
-import Typography from '@mui/material/Typography';
-import CardContent from '@mui/material/CardContent';
-import { async } from '@firebase/util';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
 function ShowOrder() {
 
 
   const [order , setOrder] = useState ([]);
-  const [show, setShow] = useState({});
+  
   
   useEffect (
     () => 
@@ -42,14 +37,13 @@ function ShowOrder() {
     setOpen(false);
   };
 
+  const [show, setShow] = useState({});
   const handleToggle = async(id) => {
     setOpen(!open);
-
+   
   };
 
-  // const showPopup = async() => {
 
-  // }
   // const handleDelete = async (id) => {
   //   const orderDoc = doc(db, "order", id);
   //   await deleteDoc(orderDoc);
@@ -67,7 +61,7 @@ function ShowOrder() {
                   <TableCell align='center'><h5><b>จำนวน</b></h5></TableCell>
                   <TableCell align='center'>
                     <h5><b>
-                      เพิ่มเติม
+                      ดำเนินการ
                     </b></h5>
                   </TableCell>
                 </TableRow>
@@ -84,6 +78,11 @@ function ShowOrder() {
                       <Button>
                         <MoreHorizIcon color="primary" onClick={() => handleToggle(order.id)}/>
                       </Button>
+                      <Button>
+                        <DeleteOutlineOutlinedIcon color="primary">
+
+                        </DeleteOutlineOutlinedIcon>
+                      </Button>
                       
                     </TableCell>
                   </TableRow>
@@ -97,16 +96,7 @@ function ShowOrder() {
             open={open}
             onClick={handleClose}
           >
-            <Card sx={{ maxWidth: 345 }}>
-              <CardActionArea>
-                <CardContent>
-                   
-                  <Typography variant="body2" color="text.secondary">
-
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+            dsfsfd
           </Backdrop>
       </div>  
     </div>  
