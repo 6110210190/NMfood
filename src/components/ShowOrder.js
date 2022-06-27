@@ -76,12 +76,10 @@ function ShowOrder() {
                     <TableCell align='center'><h5>{order.unit}</h5></TableCell>
                     <TableCell align='center'>
                       <Button>
-                        <MoreHorizIcon color="primary" onClick={() => handleToggle(order.id)}/>
+                        <MoreHorizIcon color="primary"/>
                       </Button>
                       <Button>
-                        <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}>
-
-                        </DeleteOutlineOutlinedIcon>
+                        <DeleteOutlineOutlinedIcon color="success" onClick={() => handleDelete(order.id)}/>
                       </Button>
                       
                     </TableCell>
