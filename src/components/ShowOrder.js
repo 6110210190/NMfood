@@ -46,9 +46,8 @@ function ShowOrder() {
   const handleShow = async (id) => {
     const orderDoc = doc(db, "order", id);
     const dataShow = await getDoc(orderDoc);
-    setShow(){
-      name: setShow().name
-    }
+      
+    
   }
 
   const [open, setOpen] = React.useState(false);
