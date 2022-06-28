@@ -15,6 +15,7 @@ import Card from '@mui/material/Card';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 
@@ -64,15 +65,14 @@ function ShowOrder() {
                     <TableCell align='center'><h5>{order.name}</h5></TableCell>
                     <TableCell align='center'><h5>{order.unit}</h5></TableCell>
                     <TableCell align='center'>
+                    <ButtonGroup size="small" aria-label="small button group">
                       <Button>
-                        <MoreHorizIcon color="primary" >
-                
-                        </MoreHorizIcon>
+                        <MoreHorizIcon color="primary"/>
                       </Button>
                       <Button>
                         <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}/>
                       </Button>
-                      
+                    </ButtonGroup>
                     </TableCell>
                   </TableRow>
                 ))}
