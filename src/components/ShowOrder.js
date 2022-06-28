@@ -43,7 +43,7 @@ function ShowOrder() {
       <Menu/>
       <div>
         <TableContainer component={Paper} sx={{ minWidth: 350, maxWidth: 1000, margin: 'auto', marginTop: 5}}>
-            <Table sx={{ minWidth: 350}} size="medium" aria-label="a dense table">
+            <Table sx={{ minWidth: 350}} size="small" aria-label="a dense table">
               <TableHead>
                 <TableRow className='font'>
                   <TableCell align='center'><h5><b>ชื่อ</b></h5></TableCell>
@@ -65,7 +65,7 @@ function ShowOrder() {
                     <TableCell align='center'><h5>{order.unit}</h5></TableCell>
                     <TableCell align='center'>
                       <Button>
-                        <MoreHorizIcon color="primary">
+                        <MoreHorizIcon color="primary" >
                 
                         </MoreHorizIcon>
                       </Button>
