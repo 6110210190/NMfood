@@ -20,12 +20,13 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Backdrop from '@mui/material/Backdrop';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import { async } from '@firebase/util';
 
 
 
 function ShowOrder() {
 
-
+  
   const [order , setOrder] = useState ([]);
   
   
@@ -37,32 +38,41 @@ function ShowOrder() {
     []
   );
 
+ 
+    
   const handleDelete = async (id) => {
     const orderDoc = doc(db, "order", id);
     await deleteDoc(orderDoc);
   };
 
-  const [show, setShow] = useState([]);
-  const handleShow = async (id) => {
-    const orderDoc = doc(db, "order", id);
-    const dataShow = await getDoc(orderDoc);
-      
-    
-  }
+  // const [showname, setShowname] = useState('');
+  // const setData = (name) => {
+  //   setShowname(qData.data().name);
+  //   console.log(showname);
+  // }
 
-  const [open, setOpen] = React.useState(false);
+  // const [dquery, setDquery] = useState([]);
+  // const qData = async (id) => {
+  //   const qRef = doc(db, 'order', id);
+  //   const qSnap = await getDoc(qRef);
+  //   setDquery(qSnap);
+  //   setOpen(!open);
+  //   handleToggle();
+  // }
+
+  const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
   };
   
-  const handleToggle = (id) => {
+  const handleToggle =  (id) => {
     setOpen(!open);
-    handleShow(id);
   };
-
+  
   return (
     <div>
       <Menu/>
+      
       <div>
         <TableContainer component={Paper} sx={{ minWidth: 350, maxWidth: 1000, margin: 'auto', marginTop: 5}}>
             <Table sx={{ minWidth: 350}} size="small" aria-label="a dense table">
@@ -88,7 +98,7 @@ function ShowOrder() {
                     <TableCell align='center'>
                     <ButtonGroup size="small" aria-label="small button group">
                       <Button>
-                        <MoreHorizIcon color="primary" onClick={() => handleToggle(order.id)}/>
+                        <MoreHorizIcon color="primary" onClick={() =>  handleToggle(order.id)}/>
                       </Button>
                       <Button>
                         <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}/>
@@ -100,18 +110,23 @@ function ShowOrder() {
               </TableBody>
             </Table>
           </TableContainer>
-         
+        
           <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
             open={open}
             onClick={handleClose}
           >
-            <Card style={{width:'300px', height:'300px'}}>
-              <CardContent>
-                ทดสอบ <br />
-          
-              </CardContent>
-            </Card>
+           
+              
+            <Card 
+              style={{width: '300px', height: '300px'}}
+            >
+            Test query
+            <CardContent>
+             
+            </CardContent>
+           </Card>
+  
           </Backdrop>
          
       </div>  
