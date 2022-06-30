@@ -18,6 +18,7 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ButtonGroup from '@mui/material/ButtonGroup';
+
 import Backdrop from '@mui/material/Backdrop';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { async } from '@firebase/util';
@@ -26,10 +27,13 @@ import { async } from '@firebase/util';
 
 function ShowOrder() {
 
+  //state
+  const [order , setOrder] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [showdata, setShowdata] = useState([]);
+  const [name, setName] = useState('');
   
-  const [order , setOrder] = useState ([]);
-  
-  
+  //fatch data on firestore
   useEffect (
     () => 
        onSnapshot(collection(db, "order"), (snapshot) => 
@@ -38,37 +42,32 @@ function ShowOrder() {
     []
   );
 
- 
-    
+  //function
   const handleDelete = async (id) => {
     const orderDoc = doc(db, "order", id);
     await deleteDoc(orderDoc);
   };
 
-  // const [showname, setShowname] = useState('');
-  // const setData = (name) => {
-  //   setShowname(qData.data().name);
-  //   console.log(showname);
-  // }
-
-  // const [dquery, setDquery] = useState([]);
-  // const qData = async (id) => {
-  //   const qRef = doc(db, 'order', id);
-  //   const qSnap = await getDoc(qRef);
-  //   setDquery(qSnap);
-  //   setOpen(!open);
-  //   handleToggle();
-  // }
-
-  const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
   };
   
-  const handleToggle =  (id) => {
-    setOpen(!open);
-  };
   
+
+  const handleToggle = async (id) => {
+    setOpen(!open);
+    const dbRef = doc(db, "order", id);
+    const data = await getDoc(dbRef);
+    setShowdata((prevshowdata) => {
+      return data;
+    });
+   setName((prevname) => {
+    return data.data().name;
+   })
+  };
+
+
+
   return (
     <div>
       <Menu/>
@@ -103,6 +102,7 @@ function ShowOrder() {
                       <Button>
                         <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}/>
                       </Button>
+                      
                     </ButtonGroup>
                     </TableCell>
                   </TableRow>
@@ -121,12 +121,12 @@ function ShowOrder() {
             <Card 
               style={{width: '300px', height: '300px'}}
             >
-            Test query
+             ข้อมูลเพิ่มเติมของ {name}
             <CardContent>
-             
+              
             </CardContent>
            </Card>
-  
+          
           </Backdrop>
          
       </div>  
