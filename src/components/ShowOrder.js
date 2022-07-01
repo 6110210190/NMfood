@@ -32,6 +32,9 @@ function ShowOrder() {
   const [open, setOpen] = useState(false);
   const [showdata, setShowdata] = useState([]);
   const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [unit, setUnit] = useState();
+  const [tel, setTel] = useState('');
   
   //fatch data on firestore
   useEffect (
@@ -63,6 +66,15 @@ function ShowOrder() {
     });
    setName((prevname) => {
     return data.data().name;
+   })
+   setAddress((prevaddress) => {
+    return data.data().address;
+   })
+   setUnit((prevunit) => {
+    return data.data().unit;
+   })
+   setTel((prevtel) => {
+    return data.data().tel;
    })
   };
 
@@ -119,11 +131,14 @@ function ShowOrder() {
            
               
             <Card 
-              style={{width: '300px', height: '300px'}}
+              style={{width: '300px'}}
             >
-             ข้อมูลเพิ่มเติมของ {name}
+                 <h5 style={{marginTop:'30px'}} align='center'><b>ข้อมูลเพิ่มเติมของ {name}</b></h5>
+            
             <CardContent>
-              
+              <h5>ส่งที่: {address}</h5>
+              <h5>จำนวน: {unit} ชุด</h5> 
+              <h5>เบอร์โทร: {tel}</h5> 
             </CardContent>
            </Card>
           
