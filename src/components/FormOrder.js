@@ -5,6 +5,9 @@ import { db } from "../firebase";
 import { collection, addDoc, Timestamp } from '@firebase/firestore';
 import { Link } from 'react-router-dom';
 import Menu from '../components/Menu';
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
 
 function FormOrder() {
 
@@ -13,10 +16,10 @@ function FormOrder() {
   const [address, setAddress] = useState('');
   const [unit, setUnit] = useState(0);
   const [tel, setTel] = useState('');
-  const [status, setStatus] = useState(false);
+  // const [status, setStatus] = useState(false);
   
   const createOrder = async () => {
-      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel, status: status});
+      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel});
   }
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -66,16 +69,16 @@ function FormOrder() {
           <Button 
             variant="outline-primary" 
             type="submit" 
-            style={{marginRight: '.5cm'}}
             onClick={handleShow}
+            style={{marginRight:'10px'}}
           >
-            Create
+                <SaveOutlinedIcon/>
           </Button>
           <Link to='/'>
             <Button 
-              // style={{textAlign:'centers', marginTop: '1rem'}}
-              variant="outline-success">
-              Cancel
+              variant="outline-primary"
+            >
+              <CancelPresentationOutlinedIcon/>
             </Button>
           </Link>
         </div>
@@ -92,6 +95,7 @@ function FormOrder() {
                 variant="secondary" 
                 onClick={createOrder}
               >
+            
                 Submit
               </Button>
             </Link>
