@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { db } from "../firebase";
-import { collection, getDoc, deleteDoc, doc, where, query, onSnapshot} from '@firebase/firestore';
+import { collection, getDoc, deleteDoc, doc, onSnapshot} from '@firebase/firestore';
 import Menu from './Menu';
 import '../components/Style.css'
 
@@ -13,7 +13,6 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
@@ -25,7 +24,7 @@ import { async } from '@firebase/util';
 
 
 
-function ShowOrder() {
+function OrderManagement() {
 
   //state
   const [order , setOrder] = useState([]);
@@ -55,6 +54,9 @@ function ShowOrder() {
     setOpen(false);
   };
   
+  // const addOrder = () => {
+    
+  // }
   
 
   const handleToggle = async (id) => {
@@ -127,25 +129,20 @@ function ShowOrder() {
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
             open={open}
             onClick={handleClose}
-          >
-           
-              
-            <Card 
-              style={{width: '300px'}}
-            >
-                 <h5 style={{marginTop:'30px'}} align='center'><b>ข้อมูลเพิ่มเติมของ {name}</b></h5>
-            
-            <CardContent>
-              <h5>ส่งที่: {address}</h5>
-              <h5>จำนวน: {unit} ชุด</h5> 
-              <h5>เบอร์โทร: {tel}</h5> 
-            </CardContent>
-           </Card>
-          
+          >  
+            <Card style={{width: '300px'}}>
+              <h5 style={{marginTop:'30px'}} align='center'><b>ข้อมูลเพิ่มเติมของ {name}</b></h5>
+              <CardContent>
+                <h5>ส่งที่: {address}</h5>
+                <h5>จำนวน: {unit} ชุด</h5> 
+                <h5>เบอร์โทร: {tel}</h5> 
+              </CardContent>
+            </Card>
           </Backdrop>
-         
+
+          
       </div>  
     </div>  
   );
 
-} export default ShowOrder;
+} export default OrderManagement;
