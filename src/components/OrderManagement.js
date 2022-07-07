@@ -126,14 +126,17 @@ function OrderManagement() {
           <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
             open={open}
-            // onClick={handleClose}
           >  
-            <Card style={{width: '300px'}}>
+            <Card 
+              style={{
+                width: '300px',
+              }}
+            >
               <div align='right'> 
                 <Button 
                   style={{
-                    marginRight:'10px',
-                    marginTop:'10px',
+                    marginRight:'5px',
+                    marginTop:'-5px',
                     marginBottom:'-20px'
                   }}  
                   size='small'  
@@ -144,16 +147,26 @@ function OrderManagement() {
                 </Button>
               </div>
               <h5 
-                style={{marginTop:'30px'}} 
+                style={{
+                  marginTop:'-5px',
+                  marginBottom:'-5px'
+                }} 
                 align='center'
               >
-                <b>ข้อมูลเพิ่มเติมของ {name}</b>
+                <b>ข้อมูลเพิ่มเติม</b>
               </h5>
-              <CardContent>
-                <h5>ส่งที่: {address}</h5>
-                <h5>จำนวน: {unit} ชุด</h5> 
-                <h5>เบอร์โทร: {tel}</h5> 
-                <div align='center'>
+              <CardContent 
+                style={{
+                  marginBottom:'-5px'
+                }}
+              >
+                <h5><b>ลูกค้า:</b> {name}</h5>
+                <h5><b>ส่งที่:</b> {address}</h5>
+                <h5><b>จำนวน:</b> {unit} ชุด</h5> 
+                <h5><b>เบอร์โทร:</b> {tel}</h5> 
+                <div 
+                  align='center'
+                >
                   <ButtonGroup 
                     size="small" 
                     aria-label="small button group"
