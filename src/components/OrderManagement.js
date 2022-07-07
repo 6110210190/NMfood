@@ -17,12 +17,13 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ButtonGroup from '@mui/material/ButtonGroup';
-
+import CardHeader from '@mui/material/CardHeader';
 import Backdrop from '@mui/material/Backdrop';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { async } from '@firebase/util';
-
-
+import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 function OrderManagement() {
 
@@ -54,10 +55,7 @@ function OrderManagement() {
     setOpen(false);
   };
   
-  // const addOrder = () => {
-    
-  // }
-  
+
 
   const handleToggle = async (id) => {
     setOpen(!open);
@@ -66,18 +64,18 @@ function OrderManagement() {
     setShowdata((prevshowdata) => {
       return data;
     });
-   setName((prevname) => {
-    return data.data().name;
-   })
-   setAddress((prevaddress) => {
-    return data.data().address;
-   })
-   setUnit((prevunit) => {
-    return data.data().unit;
-   })
-   setTel((prevtel) => {
-    return data.data().tel;
-   })
+    setName((prevname) => {
+      return data.data().name;
+    })
+    setAddress((prevaddress) => {
+      return data.data().address;
+    })
+    setUnit((prevunit) => {
+      return data.data().unit;
+    })
+    setTel((prevtel) => {
+      return data.data().tel;
+    })
   };
 
 
@@ -113,9 +111,9 @@ function OrderManagement() {
                       <Button>
                         <MoreHorizIcon color="primary" onClick={() =>  handleToggle(order.id)}/>
                       </Button>
-                      <Button>
+                      {/* <Button>
                         <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}/>
-                      </Button>
+                      </Button> */}
                       
                     </ButtonGroup>
                     </TableCell>
@@ -128,15 +126,55 @@ function OrderManagement() {
           <Backdrop
             sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
             open={open}
-            onClick={handleClose}
+            // onClick={handleClose}
           >  
             <Card style={{width: '300px'}}>
-              <h5 style={{marginTop:'30px'}} align='center'><b>ข้อมูลเพิ่มเติมของ {name}</b></h5>
+              <div align='right'> 
+                <Button 
+                  style={{
+                    marginRight:'10px',
+                    marginTop:'10px',
+                    marginBottom:'-20px'
+                  }}  
+                  size='small'  
+                  variant='outlined' 
+                  onClick={handleClose}
+                >
+                  <CloseOutlinedIcon/>
+                </Button>
+              </div>
+              <h5 
+                style={{marginTop:'30px'}} 
+                align='center'
+              >
+                <b>ข้อมูลเพิ่มเติมของ {name}</b>
+              </h5>
               <CardContent>
                 <h5>ส่งที่: {address}</h5>
                 <h5>จำนวน: {unit} ชุด</h5> 
                 <h5>เบอร์โทร: {tel}</h5> 
+                <div align='center'>
+                  <ButtonGroup 
+                    size="small" 
+                    aria-label="small button group"
+                  >
+                    <Button>
+                      <CheckOutlinedIcon/>
+                    </Button>
+                    <Button>
+                      <EditOutlinedIcon/>
+                    </Button>
+                    <Button 
+                      onClick={handleDelete}
+                      // disabled
+                    >
+                      <DeleteOutlineOutlinedIcon/>
+                    </Button>
+                  </ButtonGroup>
+                </div>
+                
               </CardContent>
+              
             </Card>
           </Backdrop>
 
