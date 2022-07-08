@@ -4,7 +4,7 @@ import { db } from "../firebase";
 import { collection, getDoc, deleteDoc, doc, onSnapshot} from '@firebase/firestore';
 import Menu from './Menu';
 import '../components/Style.css'
-
+import { Link } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -17,7 +17,6 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ButtonGroup from '@mui/material/ButtonGroup';
-import CardHeader from '@mui/material/CardHeader';
 import Backdrop from '@mui/material/Backdrop';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import { async } from '@firebase/util';
@@ -35,6 +34,7 @@ function OrderManagement() {
   const [address, setAddress] = useState('');
   const [unit, setUnit] = useState();
   const [tel, setTel] = useState('');
+  const [id, setId] = useState('');
   
   //fatch data on firestore
   useEffect (
@@ -49,6 +49,7 @@ function OrderManagement() {
   const handleDelete = async (id) => {
     const orderDoc = doc(db, "order", id);
     await deleteDoc(orderDoc);
+    handleClose();
   };
 
   const handleClose = () => {
@@ -75,6 +76,10 @@ function OrderManagement() {
     })
     setTel((prevtel) => {
       return data.data().tel;
+    })
+
+    setId((previd) => {
+      return id;
     })
   };
 
@@ -113,9 +118,9 @@ function OrderManagement() {
                       <Button>
                         <MoreHorizIcon color="primary" onClick={() =>  handleToggle(order.id)}/>
                       </Button>
-                      {/* <Button>
+                      <Button>
                         <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}/>
-                      </Button> */}
+                      </Button>
                       
                     </ButtonGroup>
                     </TableCell>
@@ -179,17 +184,12 @@ function OrderManagement() {
                     <Button>
                       <EditOutlinedIcon/>
                     </Button>
-                    <Button 
-                      onClick={handleDelete}
-                      // disabled
-                    >
-                      <DeleteOutlineOutlinedIcon/>
+                    <Button>
+                      <DeleteOutlineOutlinedIcon  onClick={() => handleDelete(id)}/>
                     </Button>
                   </ButtonGroup>
-                </div>
-                
+                </div>           
               </CardContent>
-              
             </Card>
           </Backdrop>
 

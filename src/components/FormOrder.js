@@ -1,11 +1,13 @@
 import { Container, Button, Form, Modal } from 'react-bootstrap';
-
+import '../components/Style.css'
 import React, { useState } from 'react';
 import { db } from "../firebase";
 import { collection, addDoc } from '@firebase/firestore';
 import { Link } from 'react-router-dom';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentationOutlined';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
 
 function FormOrder() {
 
@@ -63,6 +65,25 @@ function FormOrder() {
             }}
           />
         </Form.Group>
+        {/* <Box
+          component="form"
+          sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+          }}
+          noValidate
+          autoComplete="off"
+          style={{
+            // backgroundColor:'red',
+            width: "500px",
+            textAlign: 'center',
+            margin:'auto'
+          }}
+        >
+          <TextField id="outlined-basic" label="ลูกค้า" variant="outlined" /> <br/>
+          <TextField id="outlined-basic" label="ที่อยู่" variant="outlined" />  
+          <TextField id="outlined-basic" label="จำนวน" variant="outlined" /> 
+          <TextField id="outlined-basic" label="เบอร์โทร" variant="outlined" />
+        </Box> */}
         <div style={{float: 'right'}}>
           <Button 
             variant="outline-primary" 
