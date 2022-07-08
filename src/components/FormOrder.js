@@ -32,7 +32,7 @@ function FormOrder() {
 
     <div>
       <Container style= {{ padding: '3rem' }}>
-        <Form.Group className='mb-3'>
+        {/* <Form.Group className='mb-3'>
           <Form.Control 
             placeholder="Customer Name" 
             onChange={(e) => {
@@ -64,27 +64,59 @@ function FormOrder() {
               setTel(e.target.value);
             }}
           />
-        </Form.Group>
-        {/* <Box
+        </Form.Group> */}
+        <Box
           component="form"
           sx={{
-            '& > :not(style)': { m: 1, width: '25ch' },
+            m: 1
           }}
-          noValidate
-          autoComplete="off"
+          
           style={{
             // backgroundColor:'red',
             width: "500px",
             textAlign: 'center',
-            margin:'auto'
+            margin:'auto',
+            border: '1px'
           }}
         >
-          <TextField id="outlined-basic" label="ลูกค้า" variant="outlined" /> <br/>
-          <TextField id="outlined-basic" label="ที่อยู่" variant="outlined" />  
-          <TextField id="outlined-basic" label="จำนวน" variant="outlined" /> 
-          <TextField id="outlined-basic" label="เบอร์โทร" variant="outlined" />
-        </Box> */}
-        <div style={{float: 'right'}}>
+          <TextField 
+            id="outlined-basic" 
+            label="ลูกค้า" 
+            variant="outlined"
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
+            style={{marginBottom:'10px', width:'350px'}}
+          /> <br/>
+          <TextField 
+            id="outlined-basic" 
+            label="ที่อยู่" 
+            variant="outlined" 
+            onChange={(e) => {
+              setAddress(e.target.value);
+            }}
+            style={{marginBottom:'10px', width:'350px'}}
+          />  <br/>
+          <TextField 
+            id="outlined-basic" 
+            label="จำนวน" 
+            variant="outlined"
+            onChange={(e) => {
+              setUnit(e.target.value);
+            }}
+            style={{marginBottom:'10px', width:'350px'}}
+          /> <br/>
+          <TextField 
+            id="outlined-basic" 
+            label="เบอร์โทร" 
+            variant="outlined" 
+            onChange={(e) => {
+              setTel(e.target.value);
+            }}
+            style={{marginBottom:'10px', width:'350px'}}
+          />
+        </Box>
+        <div style={{textAlign:'center', marginTop: '10px'}}>
           <Button 
             variant="outline-primary" 
             type="submit" 
