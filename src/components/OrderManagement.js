@@ -99,7 +99,7 @@ function OrderManagement() {
                   <TableCell align='center'><h5><b>จำนวน</b></h5></TableCell>
                   <TableCell align='center'>
                     <h5><b>
-                      ดำเนินการ
+                      จัดการ
                     </b></h5>
                   </TableCell>
                 </TableRow>
