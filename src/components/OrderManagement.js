@@ -90,7 +90,7 @@ function OrderManagement() {
       <Menu/>
       
       <div>
-        <TableContainer component={Paper} sx={{ minWidth: 450, maxWidth: 1000, margin: 'auto', marginTop: 5}}>
+        <TableContainer component={Paper} sx={{ minWidth: 350, maxWidth: 1000, margin: 'auto', marginTop: 5}}>
             <Table sx={{ minWidth: 350}} size="small" aria-label="a dense table">
               <TableHead>
                 <TableRow className='font'>
