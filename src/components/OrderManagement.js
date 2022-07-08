@@ -90,7 +90,7 @@ function OrderManagement() {
       <Menu/>
       
       <div>
-        <TableContainer component={Paper} sx={{ minWidth: 350, maxWidth: 1000, margin: 'auto', marginTop: 5}}>
+        <TableContainer component={Paper} sx={{ minWidth: 450, maxWidth: 1000, margin: 'auto', marginTop: 5}}>
             <Table sx={{ minWidth: 350}} size="small" aria-label="a dense table">
               <TableHead>
                 <TableRow className='font'>
@@ -118,10 +118,6 @@ function OrderManagement() {
                       <Button>
                         <MoreHorizIcon color="primary" onClick={() =>  handleToggle(order.id)}/>
                       </Button>
-                      <Button>
-                        <DeleteOutlineOutlinedIcon color="primary" onClick={() => handleDelete(order.id)}/>
-                      </Button>
-                      
                     </ButtonGroup>
                     </TableCell>
                   </TableRow>
@@ -185,7 +181,7 @@ function OrderManagement() {
                       <EditOutlinedIcon/>
                     </Button>
                     <Button>
-                      <DeleteOutlineOutlinedIcon  onClick={() => handleDelete(id)}/>
+                      <DeleteOutlineOutlinedIcon onClick={() => handleDelete(id)}/>
                     </Button>
                   </ButtonGroup>
                 </div>           
