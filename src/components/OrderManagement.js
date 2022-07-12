@@ -33,6 +33,7 @@ function OrderManagement() {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [unit, setUnit] = useState();
+  const [date, setDate] = useState('');
   const [tel, setTel] = useState('');
   const [id, setId] = useState('');
   
@@ -74,6 +75,11 @@ function OrderManagement() {
     setUnit((prevunit) => {
       return data.data().unit;
     })
+
+    setDate((prevdate) => {
+      return data.data().date;
+    })
+
     setTel((prevtel) => {
       return data.data().tel;
     })
@@ -166,6 +172,7 @@ function OrderManagement() {
                 <h5><b>ลูกค้า:</b> {name}</h5>
                 <h5><b>ส่งที่:</b> {address}</h5>
                 <h5><b>จำนวน:</b> {unit} ชุด</h5> 
+                <h5><b>รอบส่ง:</b> วันที่ {date} </h5> 
                 <h5><b>เบอร์โทร:</b> {tel}</h5> 
                 <div 
                   align='center'

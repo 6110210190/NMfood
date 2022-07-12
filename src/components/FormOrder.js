@@ -9,6 +9,8 @@ import CancelPresentationOutlinedIcon from '@mui/icons-material/CancelPresentati
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 
+
+
 function FormOrder() {
 
   const orderCollectionRef = collection(db, "order");
@@ -17,9 +19,9 @@ function FormOrder() {
   const [unit, setUnit] = useState(0);
   const [tel, setTel] = useState('');
   // const [status, setStatus] = useState(false);
-  
+  const [date, setDate] = useState('');
   const createOrder = async () => {
-      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, tel: tel});
+      await addDoc(orderCollectionRef, {name: name, address: address, unit: unit, date: date, tel: tel});
   }
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -103,6 +105,19 @@ function FormOrder() {
               setUnit(e.target.value);
             }}
             style={{marginBottom:'10px', width:'350px'}}
+          /> <br/>
+          <TextField
+            id="date"
+            label="รอบออเดอร์"
+            type="date"
+            sx={{ width: 350 }}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={(e) => {
+              setDate(e.target.value);
+            }}
+            style={{marginBottom:'10px'}}
           /> <br/>
           <TextField 
             id="outlined-basic" 
