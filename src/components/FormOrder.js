@@ -84,7 +84,7 @@ function FormOrder() {
             label="ลูกค้า" 
             variant="outlined"
             onChange={(e) => {
-              setAddress(e.target.value);
+              setName(e.target.value);
             }}
             style={{marginBottom:'10px', width:'350px'}}
           /> <br/>
