@@ -72,10 +72,8 @@ function FormOrder() {
           }}
           
           style={{
-            // backgroundColor:'red',
-            width: "500px",
             textAlign: 'center',
-            margin:'auto',
+            paddingTop:'10px',
             border: '1px'
           }}
         >
