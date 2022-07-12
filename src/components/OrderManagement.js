@@ -36,6 +36,7 @@ function OrderManagement() {
   const [date, setDate] = useState('');
   const [tel, setTel] = useState('');
   const [id, setId] = useState('');
+  const [preAddress, setPreAddress] = useState('');
   
   //fatch data on firestore
   useEffect (
@@ -69,6 +70,11 @@ function OrderManagement() {
     setName((prevname) => {
       return data.data().name;
     })
+
+    setPreAddress((prepreaddress) => {
+      return data.data().preAddress;
+    })
+
     setAddress((prevaddress) => {
       return data.data().address;
     })
@@ -87,6 +93,8 @@ function OrderManagement() {
     setId((previd) => {
       return id;
     })
+
+    
   };
 
 
@@ -117,7 +125,7 @@ function OrderManagement() {
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
                     <TableCell align='center'><h5>{order.name}</h5></TableCell>
-                    <TableCell align='center'><h5>{order.address}</h5></TableCell>
+                    <TableCell align='center'><h5>{order.preAddress}</h5></TableCell>
                     <TableCell align='center'><h5>{order.unit}</h5></TableCell>
                     <TableCell align='center'>
                     <ButtonGroup size="small" aria-label="small button group">
