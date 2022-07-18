@@ -58,13 +58,13 @@ function FormOrder() {
             }}
             style={{marginBottom:'10px', width:'350px'}}
           /> <br/>
-          <FormControl sx={{ minWidth: 120, width: 350, marginBottom: 1 }}>
+          <FormControl sx={{ minWidth: 120, width: 200, marginBottom: 1 }}>
             <InputLabel id="demo-controlled-open-select-label">บริเวณ</InputLabel>
             <Select
               labelId="demo-controlled-open-select-label"
               id="demo-controlled-open-select"
               value={preAddress}
-              label="Age"
+              label="บริเวณ"
               onChange={(e) => {
                 setPreAddress(e.target.value);
               }}
@@ -78,7 +78,20 @@ function FormOrder() {
               <MenuItem value="คอหงส์">คอหงส์</MenuItem>
               <MenuItem value="คอหงส์">คลองเรียน</MenuItem>
             </Select>
-          </FormControl> <br/>
+          </FormControl> 
+          <TextField 
+            id="outlined-basic" 
+            label="จำนวน" 
+            variant="outlined"
+            onChange={(e) => {
+              setUnit(e.target.value);
+            }}
+            style={{
+              marginBottom:'10px', 
+              width:'140px', 
+              marginLeft: '10px'
+            }}
+          /> <br/>
           <TextField 
             id="outlined-basic" 
             label="ที่อยู่" 
@@ -88,15 +101,7 @@ function FormOrder() {
             }}
             style={{marginBottom:'10px', width:'350px'}}
           />  <br/>
-          <TextField 
-            id="outlined-basic" 
-            label="จำนวน" 
-            variant="outlined"
-            onChange={(e) => {
-              setUnit(e.target.value);
-            }}
-            style={{marginBottom:'10px', width:'350px'}}
-          /> <br/>
+          
           <TextField
             id="date"
             label="รอบออเดอร์"
