@@ -55,12 +55,11 @@ function OrderManagement() {
     setOpen(false);
   };
   
-
-
-  const handleToggle = async (id) => {
-    setOpen(!open);
+  const setData = async (id) => {
     const dbRef = doc(db, "order", id);
     const data = await getDoc(dbRef);
+
+
     setName((prevname) => {
       return data.data().name;
     })
@@ -84,7 +83,12 @@ function OrderManagement() {
       return id;
     })
 
+    handleToggle();
     
+  }
+  
+  const handleToggle =  () => {
+    setOpen(!open); 
   };
 
 
@@ -120,7 +124,7 @@ function OrderManagement() {
                     <TableCell align='center'>
                     <ButtonGroup size="small" aria-label="small button group">
                       <Button>
-                        <MoreHorizIcon color="primary" onClick={() =>  handleToggle(order.id)}/>
+                        <MoreHorizIcon color="primary" onClick={() =>  setData(order.id)}/>
                       </Button>
                     </ButtonGroup>
                     </TableCell>
