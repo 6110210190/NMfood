@@ -4,7 +4,6 @@ import { db } from "../firebase";
 import { collection, getDoc, deleteDoc, doc, onSnapshot} from '@firebase/firestore';
 import Menu from './Menu';
 import '../components/Style.css'
-import { Link } from 'react-router-dom';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -19,24 +18,22 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Backdrop from '@mui/material/Backdrop';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import { async } from '@firebase/util';
 import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+
 
 function OrderManagement() {
 
   //state
   const [order , setOrder] = useState([]);
   const [open, setOpen] = useState(false);
-  const [showdata, setShowdata] = useState([]);
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [unit, setUnit] = useState();
   const [date, setDate] = useState('');
   const [tel, setTel] = useState('');
   const [id, setId] = useState('');
-  const [preAddress, setPreAddress] = useState('');
   
   //fatch data on firestore
   useEffect (
@@ -64,15 +61,8 @@ function OrderManagement() {
     setOpen(!open);
     const dbRef = doc(db, "order", id);
     const data = await getDoc(dbRef);
-    setShowdata((prevshowdata) => {
-      return data;
-    });
     setName((prevname) => {
       return data.data().name;
-    })
-
-    setPreAddress((prepreaddress) => {
-      return data.data().preAddress;
     })
 
     setAddress((prevaddress) => {

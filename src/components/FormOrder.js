@@ -1,4 +1,4 @@
-import { Container, Button, Form, Modal } from 'react-bootstrap';
+import { Button, Modal } from 'react-bootstrap';
 import '../components/Style.css'
 import React, { useState } from 'react';
 import { db } from "../firebase";
@@ -142,7 +142,7 @@ function FormOrder() {
             </Button>
           </Link>
         </div>
- 
+            
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

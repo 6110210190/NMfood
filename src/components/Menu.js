@@ -1,7 +1,7 @@
 import React from 'react'
-import {  Button, Container, Navbar, Nav} from 'react-bootstrap';
-import Icon from '@mui/material/Icon';
+import {  Container, Navbar, Nav} from 'react-bootstrap';
 import ControlPointOutlinedIcon from '@mui/icons-material/ControlPointOutlined';
+import SummarizeOutlinedIcon from '@mui/icons-material/SummarizeOutlined';
 
 function Menu  () {
   return (
@@ -9,7 +9,7 @@ function Menu  () {
       <Navbar bg="light" variant="light">
         <Container>
           <Navbar.Brand 
-            href="#"
+            href="/"
           >
             <h1>Order Management</h1>
           </Navbar.Brand>
@@ -17,8 +17,10 @@ function Menu  () {
             <Nav.Link 
               href="/FormOrder" 
             >
-            <ControlPointOutlinedIcon fontSize="large" color="primary">add_circle</ControlPointOutlinedIcon>
-            
+              <ControlPointOutlinedIcon fontSize="large" color="primary"/>
+            </Nav.Link>
+            <Nav.Link href='/SuccessOrder'>
+              <SummarizeOutlinedIcon fontSize="large" color="primary"/>
             </Nav.Link>
           </Nav>
         </Container>

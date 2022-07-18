@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import FormOrder from './components/FormOrder'
-// import ShowOrder from './components/ShowOrder'
+import  SuccessOrder  from './components/SuccessOrder';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import OrderManagement from './components/OrderManagement';
@@ -12,7 +12,7 @@ root.render(
     <Routes>
       <Route path='/' element={<OrderManagement />} />
       <Route path="FormOrder" element={<FormOrder />} />
-      {/* <Route path="ShowOrder" element={<ShowOrder />} /> */}
+      <Route path="SuccessOrder" element={<SuccessOrder />} />
     </Routes> 
   </BrowserRouter>
 );
