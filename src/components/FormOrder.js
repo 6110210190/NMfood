@@ -36,40 +36,7 @@ function FormOrder() {
   return (
 
     <div>
-      <Container style= {{ padding: '3rem' }}>
-        {/* <Form.Group className='mb-3'>
-          <Form.Control 
-            placeholder="Customer Name" 
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Form.Group className='mb-3'>
-          <Form.Control 
-            placeholder="Address"
-            onChange={(e) => {
-              setAddress(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Form.Group className='mb-3'>
-          <Form.Control 
-            placeholder="Unit"
-            type='number'
-            onChange={(e) => {
-              setUnit(e.target.value);
-            }}
-          />
-        </Form.Group>
-        <Form.Group className='mb-3'>
-          <Form.Control 
-            placeholder="Telephone Number"
-            onChange={(e) => {
-              setTel(e.target.value);
-            }}
-          />
-        </Form.Group> */}
+     
         <Box
           component="form"
           sx={{
@@ -109,6 +76,7 @@ function FormOrder() {
               <MenuItem value="รพ.มอ.">รพ.มอ.</MenuItem>
               <MenuItem value="ทุ่งรี">ทุ่งรี</MenuItem>
               <MenuItem value="คอหงส์">คอหงส์</MenuItem>
+              <MenuItem value="คอหงส์">คลองเรียน</MenuItem>
             </Select>
           </FormControl> <br/>
           <TextField 
@@ -169,7 +137,7 @@ function FormOrder() {
             </Button>
           </Link>
         </div>
-      </Container>
+ 
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

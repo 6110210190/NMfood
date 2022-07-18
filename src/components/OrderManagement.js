@@ -109,7 +109,7 @@ function OrderManagement() {
               <TableHead>
                 <TableRow className='font'>
                   <TableCell align='center'><h5><b>ชื่อ</b></h5></TableCell>
-                  <TableCell align='center'><h5><b>ที่</b></h5></TableCell>
+                  <TableCell align='center'><h5><b>พื้นที่</b></h5></TableCell>
                   <TableCell align='center'><h5><b>จำนวน</b></h5></TableCell>
                   <TableCell align='center'>
                     <h5><b>
