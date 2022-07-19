@@ -5,9 +5,10 @@
 #date-label,
 #outlined-basic-label,
 h5,
+#outlined-basic,
 .navbar-brand
 {
     font-family: 'Kanit', sans-serif;
-    color: 'red'
+    color: 'black';
 }
 
