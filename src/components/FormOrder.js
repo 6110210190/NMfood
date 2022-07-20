@@ -69,14 +69,17 @@ function FormOrder() {
                 setPreAddress(e.target.value);
               }}
             >
-              <MenuItem value="">
+              <MenuItem id='mi' value="">
                 <em>- เลือกบริเวณ -</em>
               </MenuItem>
-              <MenuItem value="มอ.">มอ.</MenuItem>
-              <MenuItem value="รพ.มอ.">รพ.มอ.</MenuItem>
-              <MenuItem value="ทุ่งรี">ทุ่งรี</MenuItem>
-              <MenuItem value="คอหงส์">คอหงส์</MenuItem>
-              <MenuItem value="คอหงส์">คลองเรียน</MenuItem>
+              <MenuItem id='mi' value="มอ.">มอ.</MenuItem>
+              <MenuItem id='mi' value="รพ.มอ.">รพ.มอ.</MenuItem>
+              <MenuItem id='mi' value="ทุ่งรี">ทุ่งรี</MenuItem>
+              <MenuItem id='mi' value="คอหงส์">คอหงส์</MenuItem>
+              <MenuItem id='mi' value="คลองเรียน">คลองเรียน</MenuItem>
+              <MenuItem id='mi' value="เพชรเกษม">เพชรเกษม</MenuItem>
+              <MenuItem id='mi' value="หัวรั้ว">หัวรั้ว</MenuItem>
+              <MenuItem id='mi' value="แมคโคร">แมคโคร</MenuItem>
             </Select>
           </FormControl> 
           <TextField 
@@ -89,7 +92,7 @@ function FormOrder() {
             style={{
               marginBottom:'10px', 
               width:'140px', 
-              marginLeft: '10px'
+              marginLeft: '10px',
             }}
           /> <br/>
           <TextField 
@@ -119,6 +122,7 @@ function FormOrder() {
             id="outlined-basic" 
             label="เบอร์โทร" 
             variant="outlined" 
+            type='tel'
             onChange={(e) => {
               setTel(e.target.value);
             }}

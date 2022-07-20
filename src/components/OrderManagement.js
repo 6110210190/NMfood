@@ -39,7 +39,7 @@ function OrderManagement() {
   useEffect (
     () => 
        onSnapshot(collection(db, "order"), (snapshot) => 
-        setOrder(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))
+        setOrder(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})))                                                                                                                                                                                                                                                                                                                                                                                                                                  
       ),
     []
   );
@@ -112,9 +112,10 @@ function OrderManagement() {
                   </TableCell>
                 </TableRow>
               </TableHead>
+              
               <TableBody>
                 {order.map((order) => (
-                  <TableRow
+                    <TableRow
                     key={order.name}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
@@ -129,6 +130,8 @@ function OrderManagement() {
                     </ButtonGroup>
                     </TableCell>
                   </TableRow>
+
+                  
                 ))}
               </TableBody>
             </Table>
